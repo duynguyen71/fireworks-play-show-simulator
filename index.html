@@ -4,9 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="Fireworks Play Show Simulator is a fireworks show design game with modern firing systems, fuse types, diverse racks, and a build/save/play workflow.">
-  <title>Fireworks Play Show Simulator</title>
+  <meta name="description" content="Fireworks Show Simulator.">
+  <title>Fireworks Show Simulator</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/library_hero.png" as="image">
   <link rel="stylesheet" href="styles.css">
@@ -14,38 +13,40 @@
 
 <body>
   <header class="site-header" aria-label="Primary navigation">
-    <a class="brand" href="#top" aria-label="Fireworks Play Show Simulator home">
+    <a class="brand" href="#top" aria-label="Fireworks Show Simulator home">
       <span class="brand-mark" aria-hidden="true"></span>
-      <span>Fireworks Play</span>
+      <span>Fireworks Show Simulator</span>
     </a>
     <nav class="nav-links" aria-label="Site sections">
       <a href="privacy.html">Privacy</a>
     </nav>
     <a class="header-cta" href="https://discord.com/invite/4hTJcr8GUt" target="_blank" rel="noreferrer">
-      Join Discord
+      Discord
     </a>
   </header>
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
-        <p class="eyebrow">Simplay Studio presents</p>
-        <h1 id="hero-title">Fireworks Play Show Simulator</h1>
+        <p class="eyebrow studio-word"><span class="studio-sim">Sim</span>play Studio</p>
+        <h1 id="hero-title">FIREWORKS SHOW SIMULATOR</h1>
         <p class="hero-copy">
-          Build cinematic fireworks shows with modern firing systems, multiple fuse types, diverse racks, and a growing
-          library of shell effects.
+          Design cinematic fireworks shows with racks, shells, firing systems, and timed playback.
         </p>
+        <div class="steam-availability" aria-label="COMING SOON ON STEAM">
+          <img src="assets/coming-soon-steam.png" alt="COMING SOON ON STEAM">
+        </div>
         <div class="hero-actions" aria-label="Primary actions">
           <a class="button button-primary" href="https://www.youtube.com/@simplaystudio" target="_blank"
             rel="noreferrer">
-            Watch Trailer
+            Trailer
           </a>
           <a class="button button-secondary" href="https://www.tiktok.com/@fireworksplayofficial" target="_blank"
             rel="noreferrer">
-            Follow Updates
+            Updates
           </a>
           <a class="button button-ghost" href="https://discord.com/invite/4hTJcr8GUt" target="_blank" rel="noreferrer">
-            Join Discord
+            Discord
           </a>
         </div>
       </div>
@@ -55,22 +56,22 @@
     <section class="section intro-band" aria-label="Game highlights">
       <div class="metric">
         <span class="metric-value">Build mode</span>
-        <span class="metric-label">Place racks, firing modules, tubes, and effect setups</span>
+        <span class="metric-label">Place racks, modules, tubes</span>
       </div>
       <div class="metric">
         <span class="metric-value">Save &amp; replay</span>
-        <span class="metric-label">Save complete show layouts, then play them back as timed performances</span>
+        <span class="metric-label">Save layouts, replay shows</span>
       </div>
       <div class="metric">
         <span class="metric-value">Live systems</span>
-        <span class="metric-label">Connect firing systems, fuse types, racks, and shells</span>
+        <span class="metric-label">Firing systems, fuse types</span>
       </div>
     </section>
 
     <section id="gallery" class="section gallery-section" aria-labelledby="gallery-title">
       <div class="section-heading">
-        <p class="eyebrow">Game library</p>
-        <h2 id="gallery-title">See the show from build field to sky.</h2>
+        <p class="eyebrow">Gallery</p>
+        <h2 id="gallery-title">Gameplay gallery.</h2>
       </div>
       <div class="gallery-slider" data-gallery-slider>
         <div class="gallery-stage">
@@ -79,7 +80,7 @@
           </button>
           <figure class="gallery-frame">
             <img data-slider-image src="assets/01_compressed.png"
-              alt="Fireworks Play Show Simulator gameplay screenshot">
+              alt="Fireworks Show Simulator gameplay screenshot">
             <figcaption>
               <span data-slider-count>01 / 15</span>
               <strong data-slider-title>Festival field setup</strong>
@@ -141,31 +142,31 @@
 
     <section id="arsenal" class="section arsenal-section" aria-labelledby="arsenal-title">
       <div class="section-heading">
-        <p class="eyebrow">Firework arsenal</p>
-        <h2 id="arsenal-title">Diverse racks and shell effects, updated continuously.</h2>
+        <p class="eyebrow">Library</p>
+        <h2 id="arsenal-title">Racks &amp; shell effects.</h2>
       </div>
       <div class="arsenal-groups">
         <div class="asset-group">
-            <div class="asset-group-heading">
-              <span class="status-tag">Racks</span>
-            </div>
+          <div class="asset-group-heading">
+            <span class="status-tag">Racks</span>
+          </div>
           <div class="asset-grid" data-asset-grid="racks" aria-label="Rack thumbnail page"></div>
           <div class="asset-pagination" data-pagination="racks">
-            <button class="pager-button" type="button" data-page-prev="racks">Previous</button>
-            <span data-page-summary="racks">Page 1</span>
-            <button class="pager-button" type="button" data-page-next="racks">Next</button>
+            <button class="pager-button" type="button" data-page-prev="racks" aria-label="Previous racks page">←</button>
+            <span data-page-summary="racks">1 / 1</span>
+            <button class="pager-button" type="button" data-page-next="racks" aria-label="Next racks page">→</button>
           </div>
         </div>
 
         <div class="asset-group">
-            <div class="asset-group-heading">
-              <span class="status-tag">Shells</span>
-            </div>
+          <div class="asset-group-heading">
+            <span class="status-tag">Shells</span>
+          </div>
           <div class="asset-grid" data-asset-grid="shells" aria-label="Shell effect thumbnail page"></div>
           <div class="asset-pagination" data-pagination="shells">
-            <button class="pager-button" type="button" data-page-prev="shells">Previous</button>
-            <span data-page-summary="shells">Page 1</span>
-            <button class="pager-button" type="button" data-page-next="shells">Next</button>
+            <button class="pager-button" type="button" data-page-prev="shells" aria-label="Previous shells page">←</button>
+            <span data-page-summary="shells">1 / 1</span>
+            <button class="pager-button" type="button" data-page-next="shells" aria-label="Next shells page">→</button>
           </div>
         </div>
       </div>
@@ -178,10 +179,9 @@
       <a href="https://www.youtube.com/@simplaystudio" target="_blank" rel="noreferrer">YouTube</a>
       <a href="https://www.tiktok.com/@fireworksplayofficial" target="_blank" rel="noreferrer">TikTok</a>
       <a href="https://discord.com/invite/4hTJcr8GUt" target="_blank" rel="noreferrer">Discord</a>
-      <a href="mailto:contact@simplaystudio.com">Contact</a>
     </div>
     <p>
-      &copy; <span id="current-year">2026</span> Simplay Studio |
+      &copy; <span id="current-year">2026</span> <span class="studio-word"><span class="studio-sim">Sim</span>play Studio</span> |
       <a href="privacy.html">Privacy</a> |
       <a href="mailto:contact@simplaystudio.com">contact@simplaystudio.com</a>
     </p>

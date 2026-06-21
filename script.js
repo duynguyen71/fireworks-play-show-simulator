@@ -41,7 +41,7 @@ if (gallerySlider) {
     { src: "assets/12_.png", title: "Production field detail" },
     { src: "assets/13_.png", title: "Finale show playback" },
     { src: "assets/14-cmpr.png", title: "Saved show playback" },
-    { src: "assets/15-cmpr.png", title: "Fireworks Play library" },
+    { src: "assets/15-cmpr.png", title: "Fireworks Show library" },
   ];
 
   const sliderImage = gallerySlider.querySelector("[data-slider-image]");
@@ -188,7 +188,7 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
       })
     );
 
-    summary.textContent = `Page ${pageIndex + 1} / ${pageCount} · ${items.length} ${type}`;
+    summary.textContent = `${pageIndex + 1} / ${pageCount}`;
     previousButton.disabled = pageIndex === 0;
     nextButton.disabled = pageIndex === pageCount - 1;
   };
