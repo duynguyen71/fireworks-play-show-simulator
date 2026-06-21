@@ -1,0 +1,14 @@
+# Local planning and agent files
+docs/
+AGENTS.md
+
+# macOS and editor noise
+.DS_Store
+.idea/
+.vscode/
+
+# Local server logs and build output
+*.log
+dist/
+build/
+node_modules/
