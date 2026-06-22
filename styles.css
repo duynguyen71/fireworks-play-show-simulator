@@ -22,6 +22,7 @@
   --space-11: 8rem;
   --page-gutter: clamp(1rem, 2vw, 2rem);
   --section-y: 3rem;
+  --section-content-gap: 2rem;
   --trailer-height: 38rem;
 }
 
@@ -116,9 +117,9 @@ img {
 .eyebrow {
   margin: 0 0 var(--space-05);
   color: var(--cyan);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
@@ -322,7 +323,7 @@ h3 {
   display: grid;
   grid-template-columns: 0.36fr 1fr;
   gap: var(--space-09);
-  margin-bottom: var(--space-07);
+  margin-bottom: var(--section-content-gap);
 }
 
 .section-heading h2 {
@@ -340,7 +341,7 @@ h3 {
 .gallery-section .section-heading,
 .arsenal-section .section-heading {
   display: block;
-  margin-bottom: var(--space-07);
+  margin-bottom: var(--section-content-gap);
   text-align: center;
 }
 
@@ -511,12 +512,13 @@ h3 {
 
 .arsenal-groups {
   display: grid;
-  gap: 1.75rem;
+  gap: var(--section-y);
 }
 
 .asset-group {
   display: grid;
   justify-items: center;
+  row-gap: var(--section-content-gap);
 }
 
 .asset-group-heading {
@@ -524,7 +526,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-05);
-  margin-bottom: 0.625rem;
+  margin-bottom: 0;
 }
 
 .arsenal-section .asset-group-heading,
@@ -579,7 +581,7 @@ h3 {
   align-items: center;
   justify-content: flex-end;
   gap: var(--space-05);
-  padding-top: 0.5rem;
+  padding-top: 0;
   color: var(--muted);
   font-size: 0.875rem;
 }
@@ -615,8 +617,8 @@ h3 {
 }
 
 .more-section {
-  padding-top: var(--space-07);
-  padding-bottom: var(--space-07);
+  padding-top: var(--section-y);
+  padding-bottom: var(--section-y);
   text-align: center;
 }
 
