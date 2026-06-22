@@ -8,13 +8,12 @@
   <title>Fireworks Show Simulator</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/library_hero.png" as="image">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260622">
 </head>
 
 <body>
   <header class="site-header" aria-label="Primary navigation">
     <a class="brand" href="#top" aria-label="Fireworks Show Simulator home">
-      <span class="brand-mark" aria-hidden="true"></span>
       <span>Fireworks Show Simulator</span>
     </a>
     <nav class="nav-links" aria-label="Site sections">
@@ -37,10 +36,6 @@
           <img src="assets/coming-soon-steam.png" alt="COMING SOON ON STEAM">
         </div>
         <div class="hero-actions" aria-label="Primary actions">
-          <a class="button button-primary" href="https://www.youtube.com/@simplaystudio" target="_blank"
-            rel="noreferrer">
-            Trailer
-          </a>
           <a class="button button-secondary" href="https://www.tiktok.com/@fireworksplayofficial" target="_blank"
             rel="noreferrer">
             Updates
@@ -68,10 +63,22 @@
       </div>
     </section>
 
-    <section id="gallery" class="section gallery-section" aria-labelledby="gallery-title">
+    <section id="trailer" class="section trailer-section" aria-label="Trailer">
+      <div class="section-heading">
+        <p class="eyebrow">Trailer</p>
+      </div>
+      <div class="trailer-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/EBe1pUFqnco?si=AfqODcqeHYRZ5rqu"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section id="gallery" class="section gallery-section" aria-label="Gameplay gallery">
       <div class="section-heading">
         <p class="eyebrow">Gallery</p>
-        <h2 id="gallery-title">Gameplay gallery.</h2>
       </div>
       <div class="gallery-slider" data-gallery-slider>
         <div class="gallery-stage">
@@ -140,11 +147,7 @@
       </div>
     </section>
 
-    <section id="arsenal" class="section arsenal-section" aria-labelledby="arsenal-title">
-      <div class="section-heading">
-        <p class="eyebrow">Library</p>
-        <h2 id="arsenal-title">Racks &amp; shell effects.</h2>
-      </div>
+    <section id="arsenal" class="section arsenal-section" aria-label="Racks and shell effects">
       <div class="arsenal-groups">
         <div class="asset-group">
           <div class="asset-group-heading">
@@ -187,7 +190,7 @@
     </p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260622"></script>
 </body>
 
 </html>

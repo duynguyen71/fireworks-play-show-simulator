@@ -170,14 +170,32 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
 
   const renderPage = () => {
     const pageItems = items.slice(pageIndex * assetPageSize, (pageIndex + 1) * assetPageSize);
+    const placeholdersBefore = [];
+    const placeholdersAfter = [];
+    const remainder = pageItems.length % 4;
+
+    if (remainder > 0) {
+      const missingSlots = 4 - remainder;
+      const beforeCount = Math.floor(missingSlots / 2);
+      const afterCount = missingSlots - beforeCount;
+
+      for (let index = 0; index < beforeCount; index += 1) {
+        placeholdersBefore.push(createAssetPlaceholder());
+      }
+
+      for (let index = 0; index < afterCount; index += 1) {
+        placeholdersAfter.push(createAssetPlaceholder());
+      }
+    }
 
     grid.replaceChildren(
+      ...placeholdersBefore,
       ...pageItems.map((item) => {
         const card = document.createElement("article");
         const image = document.createElement("img");
         const label = document.createElement("span");
 
-        card.className = "asset-card";
+        card.className = `asset-card asset-card-${type}`;
         image.src = item.src;
         image.alt = `${item.name} thumbnail`;
         image.loading = "lazy";
@@ -185,7 +203,8 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
 
         card.append(image, label);
         return card;
-      })
+      }),
+      ...placeholdersAfter
     );
 
     summary.textContent = `${pageIndex + 1} / ${pageCount}`;
@@ -205,3 +224,12 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
 
   renderPage();
 });
+
+function createAssetPlaceholder() {
+  const placeholder = document.createElement("article");
+
+  placeholder.className = "asset-card asset-card-placeholder";
+  placeholder.setAttribute("aria-hidden", "true");
+
+  return placeholder;
+}
