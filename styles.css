@@ -116,9 +116,9 @@ img {
 .eyebrow {
   margin: 0 0 var(--space-05);
   color: var(--cyan);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
