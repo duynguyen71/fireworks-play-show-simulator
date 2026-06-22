@@ -828,13 +828,6 @@ h3 {
     padding: 1.25rem var(--space-05);
   }
 
-  .brand span:last-child {
-    max-width: 8rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
   .header-cta {
     display: none;
   }
