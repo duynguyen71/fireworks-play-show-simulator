@@ -656,9 +656,10 @@ h3 {
 }
 
 .asset-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1px;
+  justify-content: center;
   width: 100%;
   background: var(--border);
   border: 1px solid var(--border);
@@ -695,8 +696,10 @@ h3 {
 
 .asset-card {
   display: grid;
+  flex: 0 1 calc((100% - 4px) / 5);
   gap: 0.5rem;
   min-height: 14rem;
+  min-width: 8rem;
   padding: 0.625rem;
   background: #0f0f0f;
 }
@@ -933,7 +936,11 @@ h3 {
   }
 
   .asset-grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+    justify-content: center;
+  }
+
+  .asset-card {
+    flex-basis: calc((100% - 3px) / 4);
   }
 
   .asset-group-heading {
@@ -1076,7 +1083,11 @@ h3 {
   }
 
   .asset-grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+    justify-content: center;
+  }
+
+  .asset-card {
+    flex-basis: calc((100% - 1px) / 2);
   }
 
   .asset-pagination {
