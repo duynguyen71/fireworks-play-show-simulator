@@ -437,21 +437,19 @@ h3 {
 
 .intro-band {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: 1px;
   max-width: none;
-  padding-top: 0;
+  padding: 0 var(--page-gutter);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: var(--gray-90);
+  background: var(--border);
 }
 
 .metric {
-  padding: 1.5rem var(--space-07);
-  border-right: 1px solid var(--border);
-}
-
-.metric:last-child {
-  border-right: 0;
+  min-width: 0;
+  padding: 1.35rem clamp(1rem, 2vw, 2rem);
+  background: var(--gray-90);
 }
 
 .metric-value,
@@ -658,13 +656,10 @@ h3 {
 }
 
 .asset-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+  gap: 1px;
   width: 100%;
-  max-width: 68rem;
-  margin: 0 auto;
   background: var(--border);
   border: 1px solid var(--border);
 }
@@ -700,7 +695,6 @@ h3 {
 
 .asset-card {
   display: grid;
-  flex: 0 0 calc((100% - 12px) / 4);
   gap: 0.5rem;
   min-height: 14rem;
   padding: 0.625rem;
@@ -931,24 +925,15 @@ h3 {
   }
 
   .intro-band {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
   }
 
   .metric {
-    border-right: 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .metric:last-child {
-    border-bottom: 0;
+    border: 0;
   }
 
   .asset-grid {
-    justify-content: center;
-  }
-
-  .asset-card {
-    flex-basis: calc((100% - 4px) / 2);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
   }
 
   .asset-group-heading {
@@ -1024,9 +1009,13 @@ h3 {
   }
 
   .coming-soon-hero .fireworks-logo-text {
-    width: 100%;
-    font-size: clamp(3.2rem, 13.4vw, 3.55rem);
-    letter-spacing: 0.005em;
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc((100% - 100vw) / 2);
+    font-size: clamp(3.12rem, 13vw, 3.35rem);
+    letter-spacing: 0;
+    transform: scaleX(0.9);
+    transform-origin: center;
   }
 
   .coming-soon-hero h1 {
@@ -1087,11 +1076,7 @@ h3 {
   }
 
   .asset-grid {
-    justify-content: center;
-  }
-
-  .asset-card {
-    flex-basis: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
   }
 
   .asset-pagination {
