@@ -177,10 +177,11 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
 
   let pageIndex = 0;
   let assetPageSize = getAssetPageSize();
+  const getPageCount = () => Math.ceil(items.length / assetPageSize);
 
   const renderPage = () => {
     assetPageSize = getAssetPageSize();
-    const pageCount = Math.ceil(items.length / assetPageSize);
+    const pageCount = getPageCount();
     pageIndex = Math.min(pageIndex, pageCount - 1);
     const pageItems = items.slice(pageIndex * assetPageSize, (pageIndex + 1) * assetPageSize);
 
@@ -212,7 +213,7 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
   });
 
   nextButton.addEventListener("click", () => {
-    pageIndex = Math.min(pageCount - 1, pageIndex + 1);
+    pageIndex = Math.min(getPageCount() - 1, pageIndex + 1);
     renderPage();
   });
 
