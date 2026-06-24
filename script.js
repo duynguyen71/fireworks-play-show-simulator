@@ -153,7 +153,17 @@ const arsenalItems = {
   ],
 };
 
-const assetPageSize = 8;
+const getAssetPageSize = () => {
+  if (window.matchMedia("(max-width: 640px)").matches) {
+    return 4;
+  }
+
+  if (window.matchMedia("(max-width: 980px)").matches) {
+    return 8;
+  }
+
+  return 10;
+};
 
 Object.entries(arsenalItems).forEach(([type, items]) => {
   const grid = document.querySelector(`[data-asset-grid="${type}"]`);
@@ -165,10 +175,13 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
     return;
   }
 
-  const pageCount = Math.ceil(items.length / assetPageSize);
   let pageIndex = 0;
+  let assetPageSize = getAssetPageSize();
 
   const renderPage = () => {
+    assetPageSize = getAssetPageSize();
+    const pageCount = Math.ceil(items.length / assetPageSize);
+    pageIndex = Math.min(pageIndex, pageCount - 1);
     const pageItems = items.slice(pageIndex * assetPageSize, (pageIndex + 1) * assetPageSize);
 
     grid.replaceChildren(
@@ -204,4 +217,5 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
   });
 
   renderPage();
+  window.addEventListener("resize", renderPage);
 });
