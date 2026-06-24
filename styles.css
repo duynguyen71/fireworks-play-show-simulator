@@ -333,11 +333,19 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   min-height: 3rem;
   padding: 0.85rem 1.25rem;
   border: 1px solid transparent;
   font-weight: 600;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.button-icon {
+  flex: 0 0 auto;
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
 }
 
 .coming-soon-hero .button {
@@ -357,6 +365,24 @@ h3 {
 .button-secondary {
   background: var(--gray-10);
   color: var(--gray-100);
+}
+
+.button-youtube {
+  background: #ff0033;
+  color: #fff;
+}
+
+.button-youtube:hover {
+  background: #e6002e;
+}
+
+.button-discord {
+  background: #5865f2;
+  color: #fff;
+}
+
+.button-discord:hover {
+  background: #4752c4;
 }
 
 .button-ghost {
