@@ -96,8 +96,8 @@ img {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  min-height: 53svh;
-  padding: var(--space-07) var(--space-07) var(--space-07);
+  min-height: 48svh;
+  padding: 0.75rem var(--space-07);
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.58) 44%, rgba(0, 0, 0, 0.18) 100%),
@@ -549,15 +549,14 @@ h3 {
 }
 
 .metric-icon {
+  display: block;
   width: 2.53rem;
   height: 2.53rem;
   margin-bottom: 0.45rem;
   color: var(--gold);
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  font-size: 2.53rem;
+  font-weight: 400;
+  line-height: 1;
 }
 
 .section-heading > * {
