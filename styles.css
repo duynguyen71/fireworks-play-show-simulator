@@ -322,7 +322,8 @@ h3 {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-05);
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .coming-soon-hero .hero-actions {
@@ -333,19 +334,35 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
   min-height: 3rem;
-  padding: 0.85rem 1.25rem;
-  border: 1px solid transparent;
-  font-weight: 600;
-  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.35rem;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.28);
+  transition:
+    transform 160ms ease,
+    filter 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .button-icon {
   flex: 0 0 auto;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.55rem;
   fill: currentColor;
+}
+
+.button-star {
+  margin-right: 0.35rem;
+  color: #e7f7d2;
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .coming-soon-hero .button {
@@ -354,7 +371,9 @@ h3 {
 }
 
 .button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.34);
 }
 
 .button-primary {
@@ -367,22 +386,19 @@ h3 {
   color: var(--gray-100);
 }
 
-.button-youtube {
-  background: #ff0033;
-  color: #fff;
+.button-steam {
+  background: linear-gradient(180deg, #79b94f, #3f861f);
+  border-color: rgba(202, 255, 160, 0.45);
 }
 
-.button-youtube:hover {
-  background: #e6002e;
+.button-youtube {
+  background: linear-gradient(180deg, #ee3f3f, #b91515);
+  border-color: rgba(255, 185, 185, 0.42);
 }
 
 .button-discord {
-  background: #5865f2;
-  color: #fff;
-}
-
-.button-discord:hover {
-  background: #4752c4;
+  background: linear-gradient(180deg, #6f7cff, #4653c9);
+  border-color: rgba(185, 192, 255, 0.45);
 }
 
 .button-ghost {
@@ -463,19 +479,27 @@ h3 {
 
 .intro-band {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
-  gap: 1px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
   max-width: none;
-  padding: 0 var(--page-gutter);
+  padding: 1.5rem var(--page-gutter);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: var(--border);
+  background: rgba(22, 22, 22, 0.92);
 }
 
 .metric {
+  display: grid;
+  justify-items: center;
+  align-content: start;
   min-width: 0;
-  padding: 1.35rem clamp(1rem, 2vw, 2rem);
-  background: var(--gray-90);
+  min-height: 7rem;
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+}
+
+.metric + .metric {
+  border-left: 1px solid rgba(244, 244, 244, 0.12);
 }
 
 .metric-value,
@@ -484,14 +508,30 @@ h3 {
 }
 
 .metric-value {
-  margin-bottom: 0;
-  color: var(--gold);
-  font-size: 1.375rem;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .metric-label {
+  max-width: 11rem;
   color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
   overflow-wrap: anywhere;
+}
+
+.metric-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-bottom: 0.45rem;
+  color: var(--gold);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .section-heading > * {
@@ -953,11 +993,19 @@ h3 {
   }
 
   .intro-band {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metric + .metric {
+    border-left: 0;
   }
 
   .metric {
-    border: 0;
+    border-top: 1px solid rgba(244, 244, 244, 0.1);
+  }
+
+  .metric:nth-child(-n + 2) {
+    border-top: 0;
   }
 
   .asset-grid {
@@ -1003,6 +1051,20 @@ h3 {
 
   .metric {
     padding: 1.25rem var(--space-05);
+  }
+
+  .intro-band {
+    grid-template-columns: 1fr;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .metric:nth-child(-n + 2) {
+    border-top: 1px solid rgba(244, 244, 244, 0.1);
+  }
+
+  .metric:first-child {
+    border-top: 0;
   }
 
   .hero {
