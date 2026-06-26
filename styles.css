@@ -95,9 +95,9 @@ img {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  align-items: end;
-  min-height: 100svh;
-  padding: var(--space-11) var(--space-07) var(--space-09);
+  align-items: center;
+  min-height: 78svh;
+  padding: var(--space-09) var(--space-07) var(--space-07);
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.58) 44%, rgba(0, 0, 0, 0.18) 100%),
@@ -261,11 +261,16 @@ h3 {
 }
 
 .hero:not(.coming-soon-hero) .fireworks-logo-text {
-  justify-items: center;
-  width: min(100%, 47rem);
+  justify-items: start;
+  width: min(100%, 50rem);
   margin-right: auto;
   margin-left: 0;
-  font-size: clamp(4.25rem, 7.5vw, 7.25rem);
+  margin-bottom: 1.5rem;
+  font-size: clamp(3.75rem, 6.4vw, 6.5rem);
+}
+
+.hero:not(.coming-soon-hero) .fireworks-logo-text > * {
+  text-align: left;
 }
 
 .hero:not(.coming-soon-hero) .logo-word-fireworks {
@@ -276,7 +281,6 @@ h3 {
   margin-top: 0.05em;
   font-size: 0.94em;
   letter-spacing: 0.08em;
-  transform: translateX(0.04em);
 }
 
 .fireworks-logo-text strong {
@@ -295,7 +299,7 @@ h3 {
 }
 
 .hero:not(.coming-soon-hero) .logo-word-simulator {
-  width: 54%;
+  width: 52%;
   min-width: 18rem;
   margin-top: 0.26em;
   padding-right: 0.35em;
@@ -1069,6 +1073,9 @@ h3 {
 
   .hero {
     display: block;
+    min-height: auto;
+    padding-top: var(--space-07);
+    padding-bottom: var(--space-07);
     padding-right: var(--space-05);
     padding-left: var(--space-05);
   }
@@ -1076,7 +1083,7 @@ h3 {
   .hero:not(.coming-soon-hero) .fireworks-logo-text {
     width: 100%;
     margin-left: 0;
-    font-size: clamp(3rem, 13.25vw, 4rem);
+    font-size: clamp(2.75rem, 12vw, 3.75rem);
   }
 
   .hero:not(.coming-soon-hero) .logo-word-show {
