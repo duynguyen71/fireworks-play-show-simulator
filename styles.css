@@ -603,13 +603,13 @@ h3 {
 .gallery-section .section-heading .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.125rem;
   margin-bottom: 0;
   color: var(--cyan);
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   line-height: 1;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -617,7 +617,7 @@ h3 {
 .trailer-section .section-heading .eyebrow::after,
 .gallery-section .section-heading .eyebrow::before,
 .gallery-section .section-heading .eyebrow::after {
-  width: 2.25rem;
+  width: 2.75rem;
   height: 1px;
   background: currentColor;
   content: "";
@@ -885,24 +885,24 @@ h3 {
 .more-teaser {
   display: inline-flex;
   align-items: center;
-  gap: clamp(0.75rem, 2.5vw, 2rem);
+  gap: 1.125rem;
   color: var(--cyan);
 }
 
 .more-teaser-text {
-  font-size: clamp(1.25rem, 3vw, 2.5rem);
+  font-size: 1.25rem;
   line-height: 1;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  text-shadow: 0 0 20px rgba(51, 177, 255, 0.45);
 }
 
 .more-teaser-line {
   position: relative;
-  width: clamp(2.25rem, 9vw, 8rem);
+  width: 2.75rem;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  background: currentColor;
+  opacity: 0.62;
 }
 
 .more-teaser-line::after {
@@ -931,20 +931,20 @@ h3 {
 .arsenal-section .status-tag {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.125rem;
   padding: 0;
   background: transparent;
   color: var(--cyan);
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   line-height: 1;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .arsenal-section .status-tag::before,
 .arsenal-section .status-tag::after {
-  width: 2.25rem;
+  width: 2.75rem;
   height: 1px;
   background: currentColor;
   content: "";
