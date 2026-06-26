@@ -601,13 +601,27 @@ h3 {
 
 .trailer-section .section-heading .eyebrow,
 .gallery-section .section-heading .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
   margin-bottom: 0;
   color: var(--cyan);
-  font-size: clamp(1.5rem, 4vw, 3.35rem);
-  line-height: 0.95;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
+  font-size: 0.875rem;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.trailer-section .section-heading .eyebrow::before,
+.trailer-section .section-heading .eyebrow::after,
+.gallery-section .section-heading .eyebrow::before,
+.gallery-section .section-heading .eyebrow::after {
+  width: 2.25rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  opacity: 0.62;
 }
 
 .trailer-frame {
@@ -915,12 +929,26 @@ h3 {
 }
 
 .arsenal-section .status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
   padding: 0;
   background: transparent;
   color: var(--cyan);
-  font-size: clamp(1.5rem, 4vw, 3.35rem);
-  line-height: 0.95;
-  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.arsenal-section .status-tag::before,
+.arsenal-section .status-tag::after {
+  width: 2.25rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  opacity: 0.62;
 }
 
 .privacy-section {
