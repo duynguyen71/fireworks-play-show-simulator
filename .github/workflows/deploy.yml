@@ -37,6 +37,9 @@ jobs:
           cp styles.css site/
           cp CNAME site/
           cp .nojekyll site/
+          cp favicon.ico site/
+          cp apple-touch-icon.png site/
+          cp apple-touch-icon-precomposed.png site/
           cp -r assets site/
 
       - name: Setup Pages
