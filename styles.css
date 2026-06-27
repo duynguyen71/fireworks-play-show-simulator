@@ -1296,6 +1296,7 @@ h3 {
   }
 
   .site-footer {
+    justify-content: center;
     text-align: center;
   }
 
@@ -1303,6 +1304,7 @@ h3 {
     display: grid;
     justify-items: center;
     row-gap: 0.3rem;
+    width: 100%;
     max-width: 100%;
     overflow-wrap: anywhere;
   }
@@ -1310,6 +1312,12 @@ h3 {
   .footer-copy,
   .footer-meta {
     justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-meta {
+    flex-wrap: wrap;
   }
 
   .footer-copy::after {
@@ -1317,6 +1325,7 @@ h3 {
   }
 
   .footer-links {
+    width: 100%;
     justify-content: center;
   }
 
