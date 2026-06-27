@@ -1037,7 +1037,22 @@ h3 {
 }
 
 .site-footer p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
   margin: 0;
+}
+
+.footer-copy,
+.footer-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.footer-copy::after {
+  content: "|";
 }
 
 .footer-links {
@@ -1285,8 +1300,20 @@ h3 {
   }
 
   .site-footer p {
+    display: grid;
+    justify-items: center;
+    row-gap: 0.3rem;
     max-width: 100%;
     overflow-wrap: anywhere;
+  }
+
+  .footer-copy,
+  .footer-meta {
+    justify-content: center;
+  }
+
+  .footer-copy::after {
+    content: none;
   }
 
   .footer-links {
