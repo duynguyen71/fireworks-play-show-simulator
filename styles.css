@@ -143,6 +143,15 @@ img {
   color: #ff3b30;
 }
 
+.hero-logo {
+  display: block;
+  width: min(100%, 36rem);
+  height: auto;
+  margin: 0 0 1rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
 h1,
 h2,
 h3,
@@ -1207,6 +1216,11 @@ h3 {
     width: 100%;
     margin-left: 0;
     font-size: clamp(2.75rem, 12vw, 3.75rem);
+  }
+
+  .hero-logo {
+    width: min(100%, 32rem);
+    margin-bottom: 0.75rem;
   }
 
   .hero:not(.coming-soon-hero) .logo-word-show {
