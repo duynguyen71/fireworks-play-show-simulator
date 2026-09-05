@@ -100,58 +100,7 @@ if (gallerySlider) {
   setActiveSlide(activeIndex);
 }
 
-const arsenalItems = {
-  racks: [
-    { src: "assets/rack-small-1x1.png", name: "Small 1x1" },
-    { src: "assets/rack-small-1x10.png", name: "Small 1x10" },
-    { src: "assets/rack-small-4x7.png", name: "Small 4x7" },
-    { src: "assets/rack-small-angled-4x2.png", name: "Small Angled 4x2" },
-    { src: "assets/rack-small-angled-5x3.png", name: "Small Angled 5x3" },
-    { src: "assets/rack-small-centerfansplit-4x7.png", name: "Small Center Fan Split 4x7" },
-    { src: "assets/rack-small-centerfansplit-8x3.png", name: "Small Center Fan Split 8x3" },
-    { src: "assets/rack-small-spreadout-1x5.png", name: "Small Spread Out 1x5" },
-    { src: "assets/rack-small-vfan-6x2.png", name: "Small V Fan 6x2" },
-    { src: "assets/rack-medium-1x1.png", name: "Medium 1x1" },
-    { src: "assets/rack-medium-1x6.png", name: "Medium 1x6" },
-    { src: "assets/rack-medium-1x10.png", name: "Medium 1x10" },
-    { src: "assets/rack-medium-2x6.png", name: "Medium 2x6" },
-    { src: "assets/rack-medium-2x10.png", name: "Medium 2x10" },
-    { src: "assets/rack-medium-3x4.png", name: "Medium 3x4" },
-    { src: "assets/rack-medium-4x4.png", name: "Medium 4x4" },
-    { src: "assets/rack-medium-4x7.png", name: "Medium 4x7" },
-    { src: "assets/rack-medium-8x3.png", name: "Medium 8x3" },
-    { src: "assets/rack-medium-10x5.png", name: "Medium 10x5" },
-    { src: "assets/rack-medium-cakebox-5x5.png", name: "Medium Cake Box 5x5" },
-    { src: "assets/rack-medium-centerfansplit-3x8.png", name: "Medium Center Fan Split 3x8" },
-    { src: "assets/rack-medium-spreadout-1x6.png", name: "Medium Spread Out 1x6" },
-    { src: "assets/rack-medium-zigzag-1x12.png", name: "Medium ZigZag 1x12" },
-    { src: "assets/rack-large-1x6.png", name: "Large 1x6" },
-    { src: "assets/rack-largeplus-8x3.png", name: "LargePlus 8x3" },
-    { src: "assets/rack-xlarge-1x1.png", name: "XLarge 1x1" },
-    { src: "assets/rack-xlarge-1x5.png", name: "XLarge 1x5" },
-    { src: "assets/rack-massive-1x1.png", name: "Massive 1x1" },
-    { src: "assets/rack-massive-1x5.png", name: "Massive 1x5" },
-  ],
-  shells: [
-    { src: "assets/shell-blue-dahila-150m.png", name: "6\" Blue Dahlia" },
-    { src: "assets/shell-blue-ring-with-red-ghost-shell-150m.png", name: "6\" Blue Ring\nwith Red GhostShell" },
-    { src: "assets/shell-comet-100m.png", name: "Red Comet" },
-    { src: "assets/shell-gold-brocade-100m.png", name: "4\" Gold Brocade" },
-    { src: "assets/shell-gold-brocade-220m.png", name: "8\" Gold Brocade" },
-    { src: "assets/shell-gold-brocade-450m.png", name: "16\" Gold Brocade" },
-    { src: "assets/shell-gold-chrysanthemum-180m.png", name: "8\" Glitter Gold Chrysanthemum\nwith Blue Pistil" },
-    { src: "assets/shell-gold-crackle-110m.png", name: "5\" Gold Crackle" },
-    { src: "assets/shell-gold-horsetail-40m.png", name: "6\" Gold Horsetail" },
-    { src: "assets/shell-gold-willow-with-red-ring-150m.png", name: "6\" Gold Willow\nwith Red Ring" },
-    { src: "assets/shell-mine-80m.png", name: "Silver Mine" },
-    { src: "assets/shell-red-blue-ghost-shell-80m.png", name: "4\" Blue Red GhostShell" },
-    { src: "assets/shell-red-crossette-90m.png", name: "4\" Red Crossette" },
-    { src: "assets/shell-red-dahlia-with-strobe-pistil-180m.png", name: "8\" Red Dahlia\nwith White Strobe Pistil" },
-    { src: "assets/shell-red-peony-200m.png", name: "8\" Red Peony" },
-    { src: "assets/shell-titanium-salute-20m.png", name: "2\" Titanium Salute" },
-    { src: "assets/shell-white-strobe-150m.png", name: "6\" White Strobe" },
-  ],
-};
+const arsenalItems = window.arsenalItems || {};
 
 const getAssetPageSize = () => {
   if (window.matchMedia("(max-width: 640px)").matches) {
@@ -193,7 +142,7 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
 
         card.className = `asset-card asset-card-${type}`;
         image.src = item.src;
-        image.alt = `${item.name} thumbnail`;
+        image.alt = item.name;
         image.loading = "lazy";
         label.textContent = item.name;
 

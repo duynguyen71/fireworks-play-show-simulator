@@ -35,6 +35,7 @@ jobs:
           cp privacy.html site/
           cp script.js site/
           cp styles.css site/
+          cp -r data site/
           cp CNAME site/
           cp .nojekyll site/
           cp favicon.ico site/
