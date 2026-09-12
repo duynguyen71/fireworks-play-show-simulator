@@ -1,4 +1,4 @@
-name: Deploy GitHub Pages
+name: Deploy Fireworks Show Simulator to GitHub Pages
 
 on:
   push:
@@ -54,3 +54,35 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: always()
+    permissions:
+      contents: read
+    timeout-minutes: 5
+
+    steps:
+      - name: Prepare notification
+        id: info
+        shell: bash
+        run: echo "short_sha=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+      - name: Notify Telegram
+        uses: up9cloud/action-notify@v0.4
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_MESSAGE: |
+            *FIREWORKS SHOW SIMULATOR - DEPLOY*
+
+            *Result:* `${{ needs.deploy.result == 'success' && 'SUCCESS' || (needs.deploy.result == 'failure' && 'FAILED' || (needs.deploy.result == 'cancelled' && 'CANCELLED' || 'SKIPPED')) }}`
+            *Repository:* `${{ github.repository }}`
+            *Branch:* `${{ github.head_ref || github.ref_name }}`
+            *Commit:* [`${{ steps.info.outputs.short_sha }}`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+            *Workflow:* `${{ github.workflow }}`
+            *Triggered by:* `${{ github.actor }}`
+
+            [Open website](https://fireworksshowsimulator.com)
+            [Open workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
