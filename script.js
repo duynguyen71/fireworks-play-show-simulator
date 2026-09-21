@@ -100,6 +100,70 @@ if (gallerySlider) {
   setActiveSlide(activeIndex);
 }
 
+const lazyPlaceholder =
+  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+
+const loadLazyElement = (element) => {
+  const source = element.dataset.src;
+
+  if (!source) {
+    return;
+  }
+
+  element.src = source;
+  delete element.dataset.src;
+};
+
+const lazyObserver =
+  "IntersectionObserver" in window
+    ? new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            loadLazyElement(entry.target);
+            observer.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "200px 0px" }
+      )
+    : null;
+
+const lazyEmbedObserver =
+  "IntersectionObserver" in window
+    ? new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            loadLazyElement(entry.target);
+            observer.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "0px", threshold: 0.1 }
+      )
+    : null;
+
+const observeLazy = (element) => {
+  if (!element.dataset.src) {
+    return;
+  }
+
+  const observer = element.tagName === "IFRAME" ? lazyEmbedObserver : lazyObserver;
+
+  if (observer) {
+    observer.observe(element);
+  } else {
+    loadLazyElement(element);
+  }
+};
+
+document.querySelectorAll("[data-src]").forEach(observeLazy);
+
 const arsenalItems = window.arsenalItems || {};
 
 const getAssetPageSize = () => {
@@ -134,22 +198,30 @@ Object.entries(arsenalItems).forEach(([type, items]) => {
     pageIndex = Math.min(pageIndex, pageCount - 1);
     const pageItems = items.slice(pageIndex * assetPageSize, (pageIndex + 1) * assetPageSize);
 
-    grid.replaceChildren(
-      ...pageItems.map((item) => {
-        const card = document.createElement("article");
-        const image = document.createElement("img");
-        const label = document.createElement("span");
+    const cards = pageItems.map((item) => {
+      const card = document.createElement("article");
+      const image = document.createElement("img");
+      const label = document.createElement("span");
 
-        card.className = `asset-card asset-card-${type}`;
-        image.src = item.src;
-        image.alt = item.name;
-        image.loading = "lazy";
-        label.textContent = item.name;
+      card.className = `asset-card asset-card-${type}`;
+      image.src = lazyPlaceholder;
+      image.dataset.src = item.src;
+      image.alt = item.name;
+      image.decoding = "async";
+      label.textContent = item.name;
 
-        card.append(image, label);
-        return card;
-      })
-    );
+      card.append(image, label);
+      return card;
+    });
+
+    grid.replaceChildren(...cards);
+    cards.forEach((card) => {
+      const image = card.querySelector("img");
+
+      if (image) {
+        observeLazy(image);
+      }
+    });
 
     summary.textContent = `${pageIndex + 1} / ${pageCount}`;
     previousButton.disabled = pageIndex === 0;
