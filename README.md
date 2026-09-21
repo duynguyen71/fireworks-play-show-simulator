@@ -23,7 +23,7 @@ Watch the trailer, browse gameplay screenshots, and explore the rack and shell
 catalogs. Discover different rack configurations and effects, from comets and
 mines to rings, brocades, peonies, and multi-break shells.
 
-![Fireworks Show Simulator gameplay](assets/01_compressed.png)
+![Fireworks Show Simulator gameplay](assets/01_compressed.webp)
 
 ## Follow Simplay Studio
 
