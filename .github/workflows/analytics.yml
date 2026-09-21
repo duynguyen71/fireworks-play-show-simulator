@@ -1,0 +1,125 @@
+name: Daily traffic report to Telegram
+
+on:
+  schedule:
+    # 02:00 UTC = 09:00 Asia/Ho_Chi_Minh (UTC+7)
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Send daily stats to Telegram
+        shell: python
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          import json
+          import os
+          import urllib.request
+          from datetime import datetime, timedelta, timezone
+
+          api_token = os.environ["CLOUDFLARE_API_TOKEN"]
+          zone_id = os.environ["CLOUDFLARE_ZONE_ID"]
+          bot_token = os.environ["TELEGRAM_BOT_TOKEN"]
+          chat_id = os.environ["TELEGRAM_CHAT_ID"]
+
+          day = (datetime.now(timezone.utc) - timedelta(days=1)).strftime("%Y-%m-%d")
+
+          query = """
+          query ($zoneTag: String!, $date: Date!) {
+            viewer {
+              zones(filter: { zoneTag: $zoneTag }) {
+                httpRequests1dGroups(limit: 1, filter: { date: $date }) {
+                  sum {
+                    requests
+                    pageViews
+                    bytes
+                    cachedRequests
+                    countryMap { clientCountryName requests }
+                  }
+                  uniq { uniques }
+                }
+              }
+            }
+          }
+          """
+
+          def telegram(text):
+              data = json.dumps({
+                  "chat_id": chat_id,
+                  "text": text,
+                  "parse_mode": "HTML",
+                  "disable_web_page_preview": True,
+              }).encode()
+              request = urllib.request.Request(
+                  f"https://api.telegram.org/bot{bot_token}/sendMessage",
+                  data=data,
+                  headers={"Content-Type": "application/json"},
+              )
+              urllib.request.urlopen(request, timeout=30).read()
+
+          payload = json.dumps({
+              "query": query,
+              "variables": {"zoneTag": zone_id, "date": day},
+          }).encode()
+          request = urllib.request.Request(
+              "https://api.cloudflare.com/client/v4/graphql",
+              data=payload,
+              headers={
+                  "Authorization": f"Bearer {api_token}",
+                  "Content-Type": "application/json",
+              },
+          )
+
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  body = json.load(response)
+          except Exception as exc:
+              telegram("⚠️ <b>FIREWORKS SHOW SIMULATOR</b>\nKhông lấy được thống kê: " + str(exc)[:300])
+              raise
+
+          if body.get("errors"):
+              telegram("⚠️ <b>FIREWORKS SHOW SIMULATOR</b>\nCloudflare trả lỗi: " + json.dumps(body["errors"])[:300])
+              raise SystemExit(1)
+
+          zones = body["data"]["viewer"]["zones"]
+          groups = zones[0]["httpRequests1dGroups"] if zones else []
+
+          if not groups:
+              telegram("📊 <b>FIREWORKS SHOW SIMULATOR</b>\nNgày " + day + ": chưa có dữ liệu.")
+              raise SystemExit(0)
+
+          summary = groups[0]["sum"]
+          uniques = groups[0]["uniq"]["uniques"]
+          requests = summary["requests"]
+          cached = summary["cachedRequests"]
+          cache_rate = (cached / requests * 100) if requests else 0
+          gigabytes = summary["bytes"] / 1024 / 1024 / 1024
+          countries = sorted(summary["countryMap"], key=lambda item: item["requests"], reverse=True)[:5]
+          top_countries = " · ".join(
+              f"{item['clientCountryName']} {item['requests']:,}" for item in countries
+          ) or "—"
+          display_date = datetime.strptime(day, "%Y-%m-%d").strftime("%d/%m/%Y")
+
+          text = "\n".join([
+              "📊 <b>FIREWORKS SHOW SIMULATOR</b>",
+              f"Thống kê truy cập — <b>{display_date}</b> (UTC)",
+              "",
+              f"👥 Khách truy cập: <b>{uniques:,}</b>",
+              f"📄 Page views: <b>{summary['pageViews']:,}</b>",
+              f"🔗 Requests: <b>{requests:,}</b> (cache <b>{cache_rate:.0f}%</b>)",
+              f"📦 Dữ liệu: <b>{gigabytes:.2f} GB</b>",
+              f"🌍 Top quốc gia: {top_countries}",
+          ])
+          telegram(text)
+          print(f"Sent report for {day}: {uniques} uniques, {requests} requests")
