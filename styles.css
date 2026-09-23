@@ -668,6 +668,7 @@ h3 {
 
 .gallery-frame {
   position: relative;
+  width: 100%;
   min-width: 0;
   aspect-ratio: 16 / 9;
   margin: 0;
@@ -676,10 +677,10 @@ h3 {
 }
 
 .gallery-frame img {
+  display: block;
   width: 100%;
-  min-width: 100%;
-  max-width: none;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: contain;
   background: #050505;
 }
@@ -738,6 +739,7 @@ h3 {
   display: grid;
   grid-auto-columns: minmax(8rem, 12rem);
   grid-auto-flow: column;
+  justify-content: safe center;
   gap: 1px;
   overflow-x: auto;
   padding: 1px 0 0;
