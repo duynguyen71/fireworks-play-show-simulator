@@ -27,21 +27,14 @@ const gallerySlider = document.querySelector("[data-gallery-slider]");
 
 if (gallerySlider) {
   const slides = [
-    { src: "assets/01_compressed.webp", title: "Festival field setup" },
-    { src: "assets/02_v2-c" + "mpr.webp", title: "Build mode planning" },
-    { src: "assets/03_.webp", title: "Rack placement workflow" },
-    { src: "assets/04_.webp", title: "Play show mode" },
-    { src: "assets/05-c" + "mpr.webp", title: "Cue and fuse preparation" },
-    { src: "assets/06_.webp", title: "Shell effect preview" },
-    { src: "assets/07_.webp", title: "Show playback timing" },
-    { src: "assets/08-cmpr.webp", title: "Rack menu" },
-    { src: "assets/09-cmpr.webp", title: "Layered firework effects" },
-    { src: "assets/10_.webp", title: "Finale composition" },
-    { src: "assets/11-cmpr.webp", title: "Wide show view" },
-    { src: "assets/12_.webp", title: "Production field detail" },
-    { src: "assets/13_.webp", title: "Finale show playback" },
-    { src: "assets/14-cmpr.webp", title: "Saved show playback" },
-    { src: "assets/15-cmpr.webp", title: "Fireworks Show library" },
+    { src: "assets/gallery-01-city-fan.webp", title: "City skyline finale" },
+    { src: "assets/gallery-02-rack-layout.webp", title: "Rack layout and fuse wiring" },
+    { src: "assets/gallery-03-street-burst.webp", title: "Street-level burst" },
+    { src: "assets/gallery-04-aerial-city.webp", title: "Aerial city display" },
+    { src: "assets/gallery-05-brocade-rings.webp", title: "Brocade and ring shells" },
+    { src: "assets/gallery-06-street-view.webp", title: "Show from the street" },
+    { src: "assets/gallery-07-green-peony.webp", title: "Green peony bouquet" },
+    { src: "assets/gallery-08-ground-fountain.webp", title: "Ground fountain close-up" },
   ];
 
   const sliderImage = gallerySlider.querySelector("[data-slider-image]");
