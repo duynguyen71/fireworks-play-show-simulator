@@ -738,6 +738,7 @@ h3 {
   display: grid;
   grid-auto-columns: minmax(8rem, 12rem);
   grid-auto-flow: column;
+  justify-content: safe center;
   gap: 1px;
   overflow-x: auto;
   padding: 1px 0 0;
