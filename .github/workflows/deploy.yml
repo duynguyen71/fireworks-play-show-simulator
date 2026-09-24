@@ -31,7 +31,6 @@ jobs:
         run: |
           mkdir site
           cp index.html site/
-          cp index-old.html site/
           cp privacy.html site/
           cp script.js site/
           cp styles.css site/
