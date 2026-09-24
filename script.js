@@ -160,16 +160,17 @@ document.querySelectorAll("[data-src]").forEach(observeLazy);
 
 const arsenalItems = window.arsenalItems || {};
 
+// 10 rows per page: 2 columns on mobile, 4 on tablet, 5 on desktop (see the matchMedia breakpoints and card flex-basis in styles.css).
 const getAssetPageSize = () => {
   if (window.matchMedia("(max-width: 640px)").matches) {
-    return 4;
+    return 20;
   }
 
   if (window.matchMedia("(max-width: 980px)").matches) {
-    return 8;
+    return 40;
   }
 
-  return 10;
+  return 50;
 };
 
 Object.entries(arsenalItems).forEach(([type, items]) => {
