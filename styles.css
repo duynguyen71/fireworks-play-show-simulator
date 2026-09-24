@@ -102,7 +102,7 @@ img {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.58) 44%, rgba(0, 0, 0, 0.18) 100%),
     linear-gradient(180deg, rgba(22, 22, 22, 0) 64%, var(--gray-100) 100%),
-    url("assets/library_hero.webp") center / cover no-repeat;
+    url("assets/library_hero-20260924.webp") center / cover no-repeat;
 }
 
 .hero::after {
@@ -222,7 +222,7 @@ h3 {
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.56) 0%, rgba(0, 0, 0, 0.38) 48%, rgba(0, 0, 0, 0.56) 100%),
     linear-gradient(180deg, rgba(22, 22, 22, 0) 58%, var(--gray-100) 100%),
-    url("assets/library_hero.webp") center / cover no-repeat;
+    url("assets/library_hero-20260924.webp") center / cover no-repeat;
 }
 
 .coming-soon-content {
