@@ -34,7 +34,7 @@ if (gallerySlider) {
     { src: "assets/gallery-05-brocade-rings.webp", title: "Brocade and ring shells" },
     { src: "assets/gallery-06-street-view.webp", title: "Show from the street" },
     { src: "assets/gallery-07-green-peony.webp", title: "Green peony bouquet" },
-    { src: "assets/gallery-08-ground-fountain.webp", title: "Ground fountain close-up" },
+    { src: "assets/gallery-08-ground-fountain-20260925.webp", title: "Ground fountain close-up" },
     { src: "assets/gallery-09-carousel-finale.webp", title: "Carousel and city finale" },
   ];
 
