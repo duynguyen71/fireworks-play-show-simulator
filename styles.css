@@ -373,13 +373,6 @@ h3 {
   fill: currentColor;
 }
 
-.button-star {
-  margin-right: 0.35rem;
-  color: currentColor;
-  font-size: 0.95rem;
-  line-height: 1;
-}
-
 .coming-soon-hero .button {
   min-height: 3.25rem;
   padding: 0.95rem 1.5rem;
