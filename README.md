@@ -7,7 +7,7 @@ any viewpoint in a fully 3D world. Place racks, load shells, connect fuses, and
 control the firing system.
 
 [Visit the Website](https://fireworksshowsimulator.com) |
-[Wishlist on Steam](https://store.steampowered.com/app/4668450/Fireworks_Show_Simulator)
+[Available on Steam!](https://store.steampowered.com/app/4668450/Fireworks_Show_Simulator)
 
 ## Build Your Show
 
