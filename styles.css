@@ -139,6 +139,18 @@ img {
   color: var(--text);
 }
 
+.studio-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.studio-link:hover,
+.studio-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .studio-sim {
   color: #ff3b30;
 }
