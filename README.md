@@ -32,3 +32,26 @@ mines to rings, brocades, peonies, and multi-break shells.
 [Discord](https://discord.gg/2XXRJAEUtp)
 
 Contact: [contact@simplaystudio.com](mailto:contact@simplaystudio.com)
+
+## SEO Verification
+
+Start the static site from the repository root:
+
+```sh
+python3 -m http.server 8000
+```
+
+In another terminal, run the focused browser checks using the vendored Playwright
+binary (no `npm install` is needed):
+
+```sh
+./node_modules/.bin/playwright test tests/seo.spec.js --workers=1
+```
+
+For a different server address, set `SEO_TEST_BASE_URL`. The checks cover metadata,
+structured data, sitemap URLs, privacy navigation, and desktop/mobile controls.
+
+`robots.txt` and `sitemap.xml` must be included in the deployment workflow's file
+allowlist. After merging, submit the sitemap in Google Search Console. HTTP to
+HTTPS redirection is configured separately in Cloudflare under SSL/TLS → Edge
+Certificates → Always Use HTTPS; it cannot be enabled by these static files.

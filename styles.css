@@ -616,6 +616,7 @@ h3 {
 .trailer-section .section-heading .eyebrow,
 .gallery-section .section-heading .eyebrow {
   display: inline-flex;
+  max-width: none;
   align-items: center;
   gap: 1.125rem;
   margin-bottom: 0;
@@ -961,6 +962,7 @@ h3 {
 
 .arsenal-section .status-tag {
   display: inline-flex;
+  max-width: none;
   align-items: center;
   gap: 1.125rem;
   padding: 0;
