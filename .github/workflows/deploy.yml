@@ -32,6 +32,8 @@ jobs:
           mkdir site
           cp index.html site/
           cp privacy.html site/
+          cp robots.txt site/
+          cp sitemap.xml site/
           cp script.js site/
           cp styles.css site/
           cp -r data site/

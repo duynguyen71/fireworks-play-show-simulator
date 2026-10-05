@@ -5,12 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Design professional fireworks displays from a top-down view. Watch your show from any viewpoint in a fully 3D world. Place racks, load shells, connect fuses, and control the firing system.">
+    content="Design 3D fireworks displays in Fireworks Show Simulator. Place racks, load shells, connect fuses, and watch your show from any viewpoint. Available on Steam.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Fireworks Show Simulator">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Fireworks Show Simulator">
   <meta property="og:description"
-    content="Design professional fireworks displays from a top-down view. Watch your show from any viewpoint in a fully 3D world. Place racks, load shells, connect fuses, and control the firing system.">
+    content="Design 3D fireworks displays in Fireworks Show Simulator. Place racks, load shells, connect fuses, and watch your show from any viewpoint. Available on Steam.">
   <meta property="og:url" content="https://fireworksshowsimulator.com/">
   <meta property="og:image" content="https://fireworksshowsimulator.com/assets/fireworks-show-simulator-share-black.png">
   <meta property="og:image:secure_url" content="https://fireworksshowsimulator.com/assets/fireworks-show-simulator-share-black.png">
@@ -21,11 +22,39 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fireworks Show Simulator">
   <meta name="twitter:description"
-    content="Design professional fireworks displays from a top-down view. Watch your show from any viewpoint in a fully 3D world. Place racks, load shells, connect fuses, and control the firing system.">
+    content="Design 3D fireworks displays in Fireworks Show Simulator. Place racks, load shells, connect fuses, and watch your show from any viewpoint. Available on Steam.">
   <meta name="twitter:image" content="https://fireworksshowsimulator.com/assets/fireworks-show-simulator-share-black.png">
   <meta name="twitter:image:alt" content="Fireworks Show Simulator">
-  <title>Fireworks Show Simulator</title>
+  <title>Fireworks Show Simulator — 3D Fireworks Show Design Game</title>
   <link rel="canonical" href="https://fireworksshowsimulator.com/">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://simplaystudio.com/#organization",
+          "name": "Simplay Studio",
+          "url": "https://simplaystudio.com/",
+          "email": "contact@simplaystudio.com",
+          "sameAs": ["https://www.youtube.com/@simplaystudio"]
+        },
+        {
+          "@type": "VideoGame",
+          "@id": "https://fireworksshowsimulator.com/#game",
+          "name": "Fireworks Show Simulator",
+          "url": "https://fireworksshowsimulator.com/",
+          "description": "Design professional fireworks displays from a top-down view. Place racks, load shells, connect fuses, and watch your show from any viewpoint in a fully 3D world.",
+          "image": "https://fireworksshowsimulator.com/assets/fireworks-show-simulator-share-black.png",
+          "applicationCategory": "GameApplication",
+          "genre": "Simulation",
+          "operatingSystem": ["Windows", "macOS"],
+          "publisher": { "@id": "https://simplaystudio.com/#organization" },
+          "sameAs": ["https://store.steampowered.com/app/4668450/Fireworks_Show_Simulator"]
+        }
+      ]
+    }
+  </script>
   <link rel="icon" href="/assets/favicon-dirt-logo-16.png" type="image/png" sizes="16x16">
   <link rel="icon" href="/assets/favicon-dirt-logo-32.png" type="image/png" sizes="32x32">
   <link rel="shortcut icon" href="/assets/favicon-dirt-logo-32.png" type="image/png">
@@ -37,7 +66,7 @@
   <link rel="preload" href="assets/fireworks-show-simulator-dirt-logo.webp" as="image">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261002">
+  <link rel="stylesheet" href="styles.css?v=20261005">
 </head>
 
 <body>
@@ -106,21 +135,21 @@
       </div>
     </section>
 
-    <section id="trailer" class="section trailer-section" aria-label="Trailer">
+    <section id="trailer" class="section trailer-section" aria-labelledby="trailer-title">
       <div class="section-heading">
-        <p class="eyebrow">Trailer</p>
+        <h2 id="trailer-title" class="eyebrow">Trailer</h2>
       </div>
       <div class="trailer-frame">
         <iframe data-src="https://www.youtube-nocookie.com/embed/3oQgC3o0V1A"
-          title="YouTube video player" frameborder="0"
+          title="Fireworks Show Simulator gameplay trailer" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </section>
 
-    <section id="gallery" class="section gallery-section" aria-label="Gameplay gallery">
+    <section id="gallery" class="section gallery-section" aria-labelledby="gallery-title">
       <div class="section-heading">
-        <p class="eyebrow">Gallery</p>
+        <h2 id="gallery-title" class="eyebrow">Gallery</h2>
       </div>
       <div class="gallery-slider" data-gallery-slider>
         <div class="gallery-stage">
@@ -128,7 +157,7 @@
             <span aria-hidden="true">‹</span>
           </button>
           <figure class="gallery-frame">
-            <img data-slider-image src="assets/gallery-01-city-fan.webp" alt="Fireworks Show Simulator gameplay screenshot">
+            <img data-slider-image src="assets/gallery-01-city-fan.webp" alt="City skyline finale screenshot">
             <figcaption>
               <span data-slider-count>01 / 09</span>
               <strong data-slider-title>City skyline finale</strong>
@@ -174,7 +203,7 @@
       <div class="arsenal-groups">
         <div class="asset-group">
           <div class="asset-group-heading">
-            <span class="status-tag">Shells</span>
+            <h2 class="status-tag">Shells</h2>
           </div>
           <div class="asset-grid" data-asset-grid="shells" aria-label="Shell effect thumbnail page"></div>
           <div class="asset-pagination" data-pagination="shells">
@@ -187,7 +216,7 @@
 
         <div class="asset-group">
           <div class="asset-group-heading">
-            <span class="status-tag">Racks</span>
+            <h2 class="status-tag">Racks</h2>
           </div>
           <div class="asset-grid" data-asset-grid="racks" aria-label="Rack thumbnail page"></div>
           <div class="asset-pagination" data-pagination="racks">
