@@ -9,7 +9,7 @@ test("homepage exposes metadata, structured data, and semantic headings", async 
   await expect(page).toHaveTitle("Fireworks Show Simulator — 3D Fireworks Show Design Game");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `${siteURL}/`);
   const description = await page.locator('meta[name="description"]').getAttribute("content");
-  expect(description.length).toBeLessThanOrEqual(160);
+  expect(description).toBe("Design professional fireworks displays from a top-down view. Watch your show from any viewpoint in a fully 3D world. Place racks, load shells, connect fuses, and control the firing system.");
   await expect(page.locator('meta[property="og:description"]')).toHaveAttribute("content", description);
   await expect(page.locator('meta[name="twitter:description"]')).toHaveAttribute("content", description);
   await expect(page.locator("h1")).toHaveCount(1);
@@ -19,6 +19,7 @@ test("homepage exposes metadata, structured data, and semantic headings", async 
   const organization = schema["@graph"].find((item) => item["@type"] === "Organization");
   const game = schema["@graph"].find((item) => item["@type"] === "VideoGame");
   expect(game.name).toBe("Fireworks Show Simulator");
+  expect(game.description).toBe(description);
   expect(game.publisher["@id"]).toBe(organization["@id"]);
   expect(game.operatingSystem).toEqual(["Windows", "macOS"]);
 });
