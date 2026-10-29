@@ -1,6 +1,7 @@
 # Local planning and agent files
 docs/
 AGENTS.md
+CLAUDE.md
 
 # macOS and editor noise
 .DS_Store
